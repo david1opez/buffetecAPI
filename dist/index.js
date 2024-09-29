@@ -8,21 +8,29 @@ const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
 // ROUTES
 const defaultRoute_1 = __importDefault(require("./routes/defaultRoute"));
-const createUser_1 = __importDefault(require("./routes/createUser"));
-const getUser_1 = __importDefault(require("./routes/getUser"));
-const getAttorneys_1 = __importDefault(require("./routes/getAttorneys"));
+const createUser_1 = __importDefault(require("./routes/user/createUser"));
+const getUser_1 = __importDefault(require("./routes/user/getUser"));
+const updateUser_1 = __importDefault(require("./routes/user/updateUser"));
+const getAttorneys_1 = __importDefault(require("./routes/attorney/getAttorneys"));
+// import admin from "firebase-admin";
+// const serviceAccount = require("./creds.json");
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+// });
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
-router.get('/', defaultRoute_1.default);
-router.post('/crearUsuario', createUser_1.default);
-router.post('/crearAbogado', createUser_1.default);
-router.get('/getUsuario', getUser_1.default);
-router.get('/getAbogados', getAttorneys_1.default);
-app.use('/', router);
+router.get("/", defaultRoute_1.default);
+// Rutas de usuario
+router.post("/crearUsuario", createUser_1.default);
+router.put("/editarUsuario", updateUser_1.default);
+router.get("/getUsuario", getUser_1.default);
+router.post("/crearAbogado", createUser_1.default);
+router.get("/getAbogados", getAttorneys_1.default);
+app.use("/", router);
 // INITIALIZE SERVER
 app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+    console.log("Server is running on port 3000");
 });
 //# sourceMappingURL=index.js.map

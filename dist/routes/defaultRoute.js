@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = DefaultRoute;
 const Routes_1 = __importDefault(require("./Routes"));
 async function DefaultRoute(req, res) {
     const { route } = req.query;
@@ -23,5 +24,4 @@ async function DefaultRoute(req, res) {
         }
     }
 }
-exports.default = DefaultRoute;
 //# sourceMappingURL=defaultRoute.js.map

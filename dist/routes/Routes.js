@@ -17,7 +17,7 @@ const Routes = {
                     tipo: "'abogado' | 'cliente' | 'admin'"
                 }
             },
-            response: {
+            responseFormat: {
                 acknowledged: 'boolean',
                 insertedId: 'string'
             }
@@ -29,7 +29,7 @@ const Routes = {
             queryParameters: {
                 uid: 'string'
             },
-            response: {
+            responseFormat: {
                 _id: 'string',
                 uid: 'string',
                 nombre: 'string',
@@ -45,7 +45,7 @@ const Routes = {
             method: 'GET',
             description: 'Obtiene todos los abogados',
             queryParameters: {},
-            response: [
+            responseFormat: [
                 {
                     _id: 'string',
                     uid: 'string',
@@ -67,7 +67,7 @@ const Routes = {
             method: 'POST',
             description: 'Aún no hago este endpoint',
             requestBody: {},
-            response: {}
+            responseFormat: {}
         },
     ]
 };

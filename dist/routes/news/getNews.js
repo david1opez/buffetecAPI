@@ -25,10 +25,6 @@ async function GetNews(req, res) {
             };
         });
         res.status(200).json({
-            source: {
-                id: null,
-                name: ""
-            },
             articles: [...apiNews, ...databaseNews]
         });
     }

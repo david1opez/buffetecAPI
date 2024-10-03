@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = UpdateUser;
 const mongo_1 = require("../../mongo/mongo");
 async function UpdateUser(req, res) {
     try {
@@ -27,5 +28,4 @@ async function UpdateUser(req, res) {
             .json({ error: "Error interno del servidor", details: error.message });
     }
 }
-exports.default = UpdateUser;
 //# sourceMappingURL=updateUser.js.map

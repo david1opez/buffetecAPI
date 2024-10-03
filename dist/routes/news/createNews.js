@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = CreateNews;
 const mongo_1 = require("../../mongo/mongo");
 async function CreateNews(req, res) {
     try {
@@ -24,4 +23,5 @@ async function CreateNews(req, res) {
         });
     }
 }
+exports.default = CreateNews;
 //# sourceMappingURL=createNews.js.map

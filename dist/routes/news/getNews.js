@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = GetNews;
 const mongo_1 = require("../../mongo/mongo");
 async function GetNews(req, res) {
     try {
@@ -26,7 +25,7 @@ async function GetNews(req, res) {
                 description: news.description,
                 urlToImage: news.image,
                 date: news.date,
-                url: `https://bufetecweb.vercel.app/noticias/${news._id}`,
+                url: "https://i.pinimg.com/736x/b9/fa/af/b9faafb65428b9f29d0989e69b06fa92.jpg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
             };
         });
         res.status(200).json({
@@ -40,4 +39,5 @@ async function GetNews(req, res) {
         });
     }
 }
+exports.default = GetNews;
 //# sourceMappingURL=getNews.js.map

@@ -41,7 +41,7 @@ export default async function GetNews(req: Request, res: Response) {
         description: news.description,
         urlToImage: news.image,
         date: news.date,
-        url: `https://bufetecweb.vercel.app/noticias/${news._id}`,
+        url: "https://i.pinimg.com/736x/b9/fa/af/b9faafb65428b9f29d0989e69b06fa92.jpg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
       };
     });
 

@@ -5,7 +5,7 @@ import { Request, Response } from "express";
 type News = {
     title: string;
     description: string;
-    image: string;
+    urlToImage: string;
     date: string;
     url: string;
 }
@@ -20,7 +20,7 @@ export default async function GetNews(req: Request, res: Response) {
                                         return {
                                             title: article.title,
                                             description: article.description,
-                                            image: article.urlToImage,
+                                            urlToImage: article.urlToImage,
                                             date: article.publishedAt,
                                             url: article.url
                                         }
@@ -30,7 +30,7 @@ export default async function GetNews(req: Request, res: Response) {
         return {
             title: news.title,
             description: news.description,
-            image: news.image,
+            urlToImage: news.image,
             date: news.date,
             url: `https://bufetecweb.vercel.app/noticias/${news._id}`
         }

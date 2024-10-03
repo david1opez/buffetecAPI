@@ -10,7 +10,7 @@ async function GetNews(req, res) {
             return {
                 title: article.title,
                 description: article.description,
-                image: article.urlToImage,
+                urlToImage: article.urlToImage,
                 date: article.publishedAt,
                 url: article.url
             };
@@ -19,7 +19,7 @@ async function GetNews(req, res) {
             return {
                 title: news.title,
                 description: news.description,
-                image: news.image,
+                urlToImage: news.image,
                 date: news.date,
                 url: `https://bufetecweb.vercel.app/noticias/${news._id}`
             };

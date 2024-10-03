@@ -77,7 +77,7 @@ const Routes = {
                     {
                         title: 'string',
                         description: 'string',
-                        image: 'string',
+                        urlToImage: 'string',
                         date: 'string',
                         url: 'string'
                     }

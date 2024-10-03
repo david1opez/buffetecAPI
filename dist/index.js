@@ -12,6 +12,8 @@ const createUser_1 = __importDefault(require("./routes/user/createUser"));
 const getUser_1 = __importDefault(require("./routes/user/getUser"));
 const updateUser_1 = __importDefault(require("./routes/user/updateUser"));
 const getAttorneys_1 = __importDefault(require("./routes/attorney/getAttorneys"));
+const getNews_1 = __importDefault(require("./routes/news/getNews"));
+const createNews_1 = __importDefault(require("./routes/news/createNews"));
 // import admin from "firebase-admin";
 // const serviceAccount = require("./creds.json");
 const app = (0, express_1.default)();
@@ -26,8 +28,12 @@ router.get("/", defaultRoute_1.default);
 router.post("/crearUsuario", createUser_1.default);
 router.put("/editarUsuario", updateUser_1.default);
 router.get("/getUsuario", getUser_1.default);
+// Rutas de abogado
 router.post("/crearAbogado", createUser_1.default);
 router.get("/getAbogados", getAttorneys_1.default);
+// Rutas de Noticias
+router.get("/getNoticias", getNews_1.default);
+router.post("/crearNoticia", createNews_1.default);
 app.use("/", router);
 // INITIALIZE SERVER
 app.listen(3000, () => {

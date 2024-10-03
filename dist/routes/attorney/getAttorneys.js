@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = GetAttorneys;
 const mongo_1 = require("../../mongo/mongo");
 async function GetAttorneys(req, res) {
     const attorneys = (await (0, mongo_1.collection)("abogados").find().toArray()).map((doc) => ({
@@ -17,4 +16,5 @@ async function GetAttorneys(req, res) {
     }
     res.status(200).send(attorneys);
 }
+exports.default = GetAttorneys;
 //# sourceMappingURL=getAttorneys.js.map

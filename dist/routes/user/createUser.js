@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = CreateUser;
 const mongo_1 = require("../../mongo/mongo");
 async function CreateUser(req, res) {
     try {
@@ -32,4 +31,5 @@ async function CreateUser(req, res) {
             .json({ error: "Internal server error", details: error.message });
     }
 }
+exports.default = CreateUser;
 //# sourceMappingURL=createUser.js.map

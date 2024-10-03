@@ -10,6 +10,9 @@ import GetUser from "./routes/user/getUser";
 import UpdateUser from "./routes/user/updateUser";
 
 import GetAttorneys from "./routes/attorney/getAttorneys";
+
+import GetNews from "./routes/news/getNews";
+import CreateNews from "./routes/news/createNews";
 // import admin from "firebase-admin";
 
 // const serviceAccount = require("./creds.json");
@@ -30,8 +33,13 @@ router.post("/crearUsuario", CreateUser);
 router.put("/editarUsuario", UpdateUser);
 router.get("/getUsuario", GetUser);
 
+// Rutas de abogado
 router.post("/crearAbogado", CreateUser);
 router.get("/getAbogados", GetAttorneys);
+
+// Rutas de Noticias
+router.get("/getNoticias", GetNews);
+router.post("/crearNoticia", CreateNews);
 
 app.use("/", router);
 

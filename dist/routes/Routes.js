@@ -75,6 +75,10 @@ const Routes = {
             description: 'Obtiene todas las noticias de la base de datos y de la API de noticias',
             queryParameters: {},
             responseFormat: {
+                source: {
+                    id: null,
+                    name: 'string'
+                },
                 articles: [
                     {
                         title: 'string',

@@ -36,7 +36,13 @@ export default async function GetNews(req: Request, res: Response) {
         }
     });
 
-    res.status(200).json({articles: [...apiNews, ...databaseNews]});
+    res.status(200).json({
+        source: {
+            id: null,
+            name: ""
+        },
+        articles: [...apiNews, ...databaseNews]
+    });
 
   } catch (error) {
     res.status(500).json({

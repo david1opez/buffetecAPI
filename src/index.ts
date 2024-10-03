@@ -13,6 +13,7 @@ import GetAttorneys from "./routes/attorney/getAttorneys";
 
 import GetNews from "./routes/news/getNews";
 import CreateNews from "./routes/news/createNews";
+import DeleteNews from "./routes/news/deleteNews";
 // import admin from "firebase-admin";
 
 // const serviceAccount = require("./creds.json");
@@ -40,6 +41,7 @@ router.get("/getAbogados", GetAttorneys);
 // Rutas de Noticias
 router.get("/getNoticias", GetNews);
 router.post("/crearNoticia", CreateNews);
+router.post("/eliminarNoticia", DeleteNews);
 
 app.use("/", router);
 

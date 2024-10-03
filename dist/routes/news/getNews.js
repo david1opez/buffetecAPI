@@ -25,7 +25,7 @@ async function GetNews(req, res) {
                 description: news.description,
                 urlToImage: news.image,
                 date: news.date,
-                url: "https://i.pinimg.com/736x/b9/fa/af/b9faafb65428b9f29d0989e69b06fa92.jpg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
+                url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
             };
         });
         res.status(200).json({

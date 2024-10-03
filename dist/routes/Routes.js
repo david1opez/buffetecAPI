@@ -69,6 +69,39 @@ const Routes = {
             requestBody: {},
             responseFormat: {}
         },
+        {
+            route: '/getNoticias',
+            method: 'GET',
+            description: 'Obtiene todas las noticias de la base de datos y de la API de noticias',
+            queryParameters: {},
+            responseFormat: {
+                articles: [
+                    {
+                        title: 'string',
+                        description: 'string',
+                        image: 'string',
+                        date: 'string',
+                        url: 'string'
+                    }
+                ]
+            }
+        },
+        {
+            route: '/crearNoticia',
+            method: 'POST',
+            description: 'Crea una noticia',
+            requestBody: {
+                news: {
+                    title: 'string',
+                    description: 'string',
+                    image: 'string'
+                }
+            },
+            responseFormat: {
+                acknowledged: 'boolean',
+                insertedId: 'string'
+            }
+        }
     ]
 };
 exports.default = Routes;

@@ -5,40 +5,62 @@ import bodyParser from "body-parser";
 // ROUTES
 import DefaultRoute from "./routes/defaultRoute";
 
+// User routes
 import CreateUser from "./routes/user/createUser";
 import GetUser from "./routes/user/getUser";
 import UpdateUser from "./routes/user/updateUser";
 
+// Attorney routes
+import CreateAttorney from "./routes/attorney/createAttorney";
 import GetAttorneys from "./routes/attorney/getAttorneys";
+import GetAttorney from "./routes/attorney/getAttorney";
+import UpdateAttorney from "./routes/attorney/updateAttorney";
 
+// Client Case routes
+import CreateClientCase from "./routes/clientCase/createClientCase";
+import GetClientCases from "./routes/clientCase/getClientCases";
+import UpdateClientCase from "./routes/clientCase/updateClientCase";
+
+// Appointment routes
+import CreateAppointment from "./routes/appointment/createAppointment";
+import GetAppointments from "./routes/appointment/getAppointments";
+import UpdateAppointment from "./routes/appointment/updateAppointment";
+
+// News routes
 import GetNews from "./routes/news/getNews";
 import CreateNews from "./routes/news/createNews";
 import DeleteNews from "./routes/news/deleteNews";
-// import admin from "firebase-admin";
 
-// const serviceAccount = require("./creds.json");
 const app = express();
 const router = express.Router();
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-// });
 
 app.use(cors());
 app.use(bodyParser.json());
 
 router.get("/", DefaultRoute);
 
-// Rutas de usuario
-router.post("/crearUsuario", CreateUser);
-router.put("/editarUsuario", UpdateUser);
-router.get("/getUsuario", GetUser);
+// User routes
+router.post("/createUser", CreateUser);
+router.get("/getUser", GetUser);
+router.put("/updateUser", UpdateUser);
 
-// Rutas de abogado
-router.post("/crearAbogado", CreateUser);
-router.get("/getAbogados", GetAttorneys);
+// Attorney routes
+router.post("/createAttorney", CreateAttorney);
+router.get("/getAttorneys", GetAttorneys);
+router.get("/getAttorney", GetAttorney);
+router.put("/updateAttorney", UpdateAttorney);
 
-// Rutas de Noticias
+// Client Case routes
+router.post("/createClientCase", CreateClientCase);
+router.get("/getClientCases", GetClientCases);
+router.put("/updateClientCase", UpdateClientCase);
+
+// Appointment routes
+router.post("/createAppointment", CreateAppointment);
+router.get("/getAppointments", GetAppointments);
+router.put("/updateAppointment", UpdateAppointment);
+
+// News routes
 router.get("/getNoticias", GetNews);
 router.post("/crearNoticia", CreateNews);
 router.post("/eliminarNoticia", DeleteNews);

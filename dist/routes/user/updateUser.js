@@ -1,31 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = UpdateUser;
 const mongo_1 = require("../../mongo/mongo");
 async function UpdateUser(req, res) {
     try {
-        const { firebaseUID, ...updateData } = req.body;
-        if (!firebaseUID) {
-            return res.status(400).json({ error: "Requiere el UID de Firebase" });
+        const { uid, ...updateData } = req.body;
+        if (!uid || typeof uid !== "string") {
+            return res.status(400).json({ error: "Invalid UID provided" });
         }
-        const user = await (0, mongo_1.collection)("usuarios").findOne({ firebaseUID });
-        if (!user) {
-            return res.status(404).json({ error: "Usuario no encontrado" });
+        const updateFields = {
+            ...updateData,
+            updatedAt: new Date(),
+        };
+        if (updateFields.fechaDeNacimiento) {
+            updateFields.fechaDeNacimiento = new Date(updateFields.fechaDeNacimiento);
         }
-        // Perform the update
-        const updateResult = await (0, mongo_1.collection)("usuarios").updateOne({ firebaseUID }, { $set: updateData });
-        // if (updateResult.modifiedCount === 0) {
-        //   return res.status(500).json({ error: "Update failed" });
-        // }
-        // Fetch del usuario actualizado
-        const updatedUser = await (0, mongo_1.collection)("usuarios").findOne({ firebaseUID });
-        res.status(200).json(updatedUser);
+        const updateResult = await (0, mongo_1.collection)("usuarios").findOneAndUpdate({ uid }, { $set: updateFields }, { returnDocument: "after" });
+        if (!updateResult) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        res.status(200).json(updateResult);
     }
     catch (error) {
-        console.error("Error actualizando usuario:", error);
+        console.log("Error updating user:", error);
         res
             .status(500)
-            .json({ error: "Error interno del servidor", details: error.message });
+            .json({ error: "Internal server error", details: error.message });
     }
 }
-exports.default = UpdateUser;
 //# sourceMappingURL=updateUser.js.map

@@ -1,38 +1,39 @@
 import { collection } from "../../mongo/mongo";
 import { Request, Response } from "express";
+import { User } from "./userTypes";
 
 export default async function UpdateUser(req: Request, res: Response) {
   try {
-    const { firebaseUID, ...updateData } = req.body;
+    const { uid, ...updateData } = req.body;
 
-    if (!firebaseUID) {
-      return res.status(400).json({ error: "Requiere el UID de Firebase" });
+    if (!uid || typeof uid !== "string") {
+      return res.status(400).json({ error: "Invalid UID provided" });
     }
 
-    const user = await collection("usuarios").findOne({ firebaseUID });
+    const updateFields: Partial<User> = {
+      ...updateData,
+      updatedAt: new Date(),
+    };
 
-    if (!user) {
-      return res.status(404).json({ error: "Usuario no encontrado" });
+    if (updateFields.fechaDeNacimiento) {
+      updateFields.fechaDeNacimiento = new Date(updateFields.fechaDeNacimiento);
     }
 
-    // Perform the update
-    const updateResult = await collection("usuarios").updateOne(
-      { firebaseUID },
-      { $set: updateData }
+    const updateResult = await collection("usuarios").findOneAndUpdate(
+      { uid },
+      { $set: updateFields },
+      { returnDocument: "after" }
     );
 
-    // if (updateResult.modifiedCount === 0) {
-    //   return res.status(500).json({ error: "Update failed" });
-    // }
+    if (!updateResult) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
-    // Fetch del usuario actualizado
-    const updatedUser = await collection("usuarios").findOne({ firebaseUID });
-
-    res.status(200).json(updatedUser);
+    res.status(200).json(updateResult);
   } catch (error) {
-    console.error("Error actualizando usuario:", error);
+    console.log("Error updating user:", error);
     res
       .status(500)
-      .json({ error: "Error interno del servidor", details: error.message });
+      .json({ error: "Internal server error", details: error.message });
   }
 }

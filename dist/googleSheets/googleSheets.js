@@ -28,7 +28,7 @@ async function getGoogleSheetClient() {
         credentials: serviceAccountCredentials,
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
-    console.log("AAAAAA");
+    console.log("BBBBB");
     console.log(serviceAccountCredentials);
     return googleapis_1.google.sheets({
         version: "v4",

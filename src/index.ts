@@ -20,6 +20,7 @@ import UpdateAttorney from "./routes/attorney/updateAttorney";
 import CreateClientCase from "./routes/clientCase/createClientCase";
 import GetClientCases from "./routes/clientCase/getClientCases";
 import UpdateClientCase from "./routes/clientCase/updateClientCase";
+import GetClientsFromSheets from "./routes/clientCase/getClientsFromSheets";
 
 // Appointment routes
 import CreateAppointment from "./routes/appointment/createAppointment";
@@ -54,6 +55,7 @@ router.put("/updateAttorney", UpdateAttorney);
 router.post("/createClientCase", CreateClientCase);
 router.get("/getClientCases", GetClientCases);
 router.put("/updateClientCase", UpdateClientCase);
+router.get("/getClientsFromSheets", GetClientsFromSheets);
 
 // Appointment routes
 router.post("/createAppointment", CreateAppointment);

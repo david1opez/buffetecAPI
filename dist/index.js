@@ -21,6 +21,7 @@ const updateAttorney_1 = __importDefault(require("./routes/attorney/updateAttorn
 const createClientCase_1 = __importDefault(require("./routes/clientCase/createClientCase"));
 const getClientCases_1 = __importDefault(require("./routes/clientCase/getClientCases"));
 const updateClientCase_1 = __importDefault(require("./routes/clientCase/updateClientCase"));
+const getClientsFromSheets_1 = __importDefault(require("./routes/clientCase/getClientsFromSheets"));
 // Appointment routes
 const createAppointment_1 = __importDefault(require("./routes/appointment/createAppointment"));
 const getAppointments_1 = __importDefault(require("./routes/appointment/getAppointments"));
@@ -47,6 +48,7 @@ router.put("/updateAttorney", updateAttorney_1.default);
 router.post("/createClientCase", createClientCase_1.default);
 router.get("/getClientCases", getClientCases_1.default);
 router.put("/updateClientCase", updateClientCase_1.default);
+router.get("/getClientsFromSheets", getClientsFromSheets_1.default);
 // Appointment routes
 router.post("/createAppointment", createAppointment_1.default);
 router.get("/getAppointments", getAppointments_1.default);

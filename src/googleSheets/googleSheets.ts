@@ -18,13 +18,11 @@ export async function getGoogleSheetClient(): Promise<sheets_v4.Sheets> {
     "universe_domain": process.env.UNIVERSE_DOMAIN
   };
 
-
   const auth = new google.auth.GoogleAuth({
     credentials: serviceAccountCredentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  console.log("BBBBB")
   console.log(serviceAccountCredentials)
 
   return google.sheets({

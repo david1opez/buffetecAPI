@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "bufetec-438018",
+  "private_key_id": "768cd522e9f916b1ebdefe293f0ad035980e682c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDXM7VBo2xV/rN7\nFHkHH04oyK5hFFQNyI+KqYB7vbbHMN2fyCBQHlxGUw9FL0kTEikpoJ6NOk7jg3ys\n3h3iiymkdFlwEXk+srMhcylT6+7CN0Qn2xcWsk7UNZxj7r2dhj2vjDFUsvKz+Cno\naI+Eoqfwqlt7DxWJL7zE5LukJ+5yZH8ctgDyMgrgmU8hvxjUMkjbjIGhi+DbKICO\nkCYEQlJx8FyVk40cF1pGLUnxWEt+J6DhejeFK7YJT1ysvH/jH2GNSZAaMNQZXUcN\ntxRNHpT6vE8TbK0n9pzye1Ar9dLq8A/GVVxKrm8cyB+/unOO5ev5zEJnyfJYrQMr\nGwHmiWadAgMBAAECggEAJIGXjnZ4ItBtxwPOkig73IxKlJpbtejffNDLRHKG5pyC\nBCBxZtX3plBhx0VBurP6ep7ONrv89PhxtmuJm0wrOMQqBepY7Ito+tQr3xonaxfv\n/mjarlV6LOKZUJSH4wiKP1Tja3Bd3qzLAyt1qTTkk1163lHNP/PyrF32/N5vQ0U8\na2qo2da/UZtt7bXQqn78LuCUsXnYQopi9pimgQzYbrsrlSuDTdIAJu9giCflqGDF\naKDB6SNRPTAZgGh5J42sKSMhgvdyuYTc/mvX4IJZrjCg2IpYml2W7JHLSWmEXvMZ\nhZAOtQlSa/RytYXkKtpHAi7KgZYUh8jCRPST9YyjSwKBgQDu4VIZMTrMVXfaMqw5\nsRRpPE4NTb7jbUDcEyIRJG84BpOizM0TZ1Mg+YiS9bfrARmUhJnifpz5zjE2Xr9o\nnHBR+OxNWPgcWJkkC/2rP6T/5JfsQ/MgiffuNhK4Duq11U7jwXHKopV5C9WaqyWx\n54svXJ2WYJWbrUtrotw6l1+vjwKBgQDmn/glOUdCODeVrLpfAlWpyeUb5Erz0XsP\nSst8vlAJCEx5HgeYfyop9w1iOHzirOrqFAnwyuPVYEN+opbrdKBOqm3BibGF9ViC\nZmmasLHj01iNYg8JJBkoGzpNXSSWEV7MSBc5KaJFTnF8UcLIVl7fjtpPISdTZCoP\nyNa77lsxEwKBgQC+RVjoWg8UfKtXcG9AEK1KWU9uR1PZwMcdxFupPdUc0hg8X1al\nsvJC3J+NNw1EsX6Xjrsn7mPIkhUe0n8xqxHIKTbHMSuHIIbycF6gTbR2YrUj6se4\nTkzeP9HPK4qGRR5uSUIC/leCsAt3BAWlW+HAWsvm4I2qD3F4jaNPRA1iPwKBgQDY\n+YPisYLjQDS7cqhdHrstZK9SkHQb8+fNOVc842g1N0OLZ79Jr8ohdTd4QyDrujfB\nRl0b2CaF521YxOssVqtDl4BvZ3ZHS86b0HJmgPq8F2jmi20N8pJgc01k386+CVWg\n5+pBc3QhtG18wwd4qBnWRnYJoG15PXF9LD0qzlOpVQKBgQCk3afAi3doFfekQKTX\nsmVf9CCiFEH+g8tXVQgb3w3ZWTnR30oOQoeJsuHNlLad9nD9Lhf1vPNSQN5ArZzw\nj10Df3l5WqepKkOmiTlA4WhTVRDiNMyYf6Ge7/2RhRdwqND+pd9NgcH8IkuOws3q\nO5sqPpsUcYRuNJu/WBsL6MlyRg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cuentadeserviciobufetec@bufetec-438018.iam.gserviceaccount.com",
+  "client_id": "116145355505314959921",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cuentadeserviciobufetec%40bufetec-438018.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -23,6 +23,8 @@ export async function getGoogleSheetClient(): Promise<sheets_v4.Sheets> {
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
+  console.log(serviceAccountCredentials)
+
   return google.sheets({
     version: "v4",
     auth: auth,

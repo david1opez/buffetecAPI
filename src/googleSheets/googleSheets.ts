@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const serviceAccountKeyFile = process.cwd() + '/src/swift-438017-75e4b8d2c421.json';
+const serviceAccountKeyFile = process.cwd() + '/src/swift-438017-c63d45ac72b3.json';
 
 export async function getGoogleSheetClient(): Promise<sheets_v4.Sheets> {
   const auth = new google.auth.GoogleAuth({

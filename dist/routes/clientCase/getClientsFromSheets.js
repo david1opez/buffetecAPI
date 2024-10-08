@@ -9,9 +9,6 @@ async function GetClientCases(req, res) {
         const parsedData = sheetData.slice(1).map((row) => {
             const parsedRow = {};
             row.forEach((cell, index) => {
-                // convert accents to normal characters
-                // convert spaces to underscores
-                // remove special characters
                 const columnName = columnNames[index].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /g, "_").replace(/[^a-z0-9_]/g, "");
                 parsedRow[columnName] = cell;
             });

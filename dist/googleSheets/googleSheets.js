@@ -14,7 +14,7 @@ async function getGoogleSheetClient() {
     const serviceAccountCredentials = {
         "type": "service_account",
         "project_id": process.env.PROJECT_ID,
-        "private_key_id": process.env.PRIVATE_KEY_ID?.replaceAll("\\n", "\n").replaceAll('"', ''),
+        "private_key_id": process.env.PRIVATE_KEY_ID.replace(/\\\\/g, '\\').replace(/\\n/g, '\n').replace(/"/g, ''),
         "private_key": process.env.PRIVATE_KEY,
         "client_email": process.env.CLIENT_EMAIL,
         "client_id": process.env.CLIENT_ID,
@@ -28,6 +28,7 @@ async function getGoogleSheetClient() {
         credentials: serviceAccountCredentials,
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
+    console.log("AAAAAA");
     console.log(serviceAccountCredentials);
     return googleapis_1.google.sheets({
         version: "v4",

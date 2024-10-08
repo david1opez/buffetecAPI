@@ -91,9 +91,9 @@ async function checkAttorneyAvailability(
 
   // Verificar si el día y la hora están en el horario semanal del abogado
 
-  console.log(attorney.horarioSemanal[appointmentDay]);
+  console.log(attorney.horarioSemanal);
   console.log(appointmentHour);
-  
+
   if (!attorney.horarioSemanal[appointmentDay]?.includes(appointmentHour)) {
     return false;
   }

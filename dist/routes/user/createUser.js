@@ -1,29 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = CreateUser;
 const mongo_1 = require("../../mongo/mongo");
 async function CreateUser(req, res) {
     try {
-        const { user } = req.body;
-        if (!user) {
-            return res.status(400).send("No user provided");
+        const userData = req.body;
+        if (!userData || !isValidUser(userData)) {
+            return res.status(400).send("Invalid user data");
         }
-        else if (!user.firebaseUID ||
-            !user.nombre ||
-            !user.genero ||
-            !user.celular ||
-            !user.email ||
-            !user.fechaDeNacimiento ||
-            !user.tipo) {
-            return res.status(400).send("Missing user fields");
-        }
-        else if (user.tipo !== "abogado" &&
-            user.tipo !== "cliente" &&
-            user.tipo !== "admin") {
-            return res.status(400).send("Invalid user type");
-        }
-        // Use the user data as is, let MongoDB generate its own _id
-        const result = await (0, mongo_1.collection)("usuarios").insertOne(user);
-        res.status(200).json(result);
+        const newUser = {
+            ...userData,
+            fechaDeNacimiento: new Date(userData.fechaDeNacimiento),
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        };
+        const result = await (0, mongo_1.collection)("usuarios").insertOne(newUser);
+        res.status(201).json({ ...newUser, _id: result.insertedId });
     }
     catch (error) {
         res
@@ -31,5 +23,17 @@ async function CreateUser(req, res) {
             .json({ error: "Internal server error", details: error.message });
     }
 }
-exports.default = CreateUser;
+function isValidUser(user) {
+    const requiredFields = [
+        "uid",
+        "nombre",
+        "genero",
+        "celular",
+        "email",
+        "fechaDeNacimiento",
+        "tipo",
+    ];
+    return (requiredFields.every((field) => user[field] !== undefined) &&
+        ["cliente", "abogado", "admin"].includes(user.tipo));
+}
 //# sourceMappingURL=createUser.js.map

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = GetNews;
 const mongo_1 = require("../../mongo/mongo");
 async function GetNews(req, res) {
     try {
@@ -39,5 +40,4 @@ async function GetNews(req, res) {
         });
     }
 }
-exports.default = GetNews;
 //# sourceMappingURL=getNews.js.map

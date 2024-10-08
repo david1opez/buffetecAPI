@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = DeleteNews;
 const mongo_1 = require("../../mongo/mongo");
 async function DeleteNews(req, res) {
     const { title, description, image } = req.body;
@@ -16,5 +17,4 @@ async function DeleteNews(req, res) {
         });
     }
 }
-exports.default = DeleteNews;
 //# sourceMappingURL=deleteNews.js.map

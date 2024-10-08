@@ -1,46 +1,45 @@
 import { collection } from "../../mongo/mongo";
 import { Request, Response } from "express";
-
-type User = {
-  firebaseUID: string;
-  nombre: string;
-  genero: string;
-  celular: string;
-  email: string;
-  fechaDeNacimiento: string;
-  tipo: "abogado" | "cliente" | "admin";
-};
+import { User, UserType } from "./userTypes";
 
 export default async function CreateUser(req: Request, res: Response) {
   try {
-    const { user }: { user: User } = req.body;
+    const userData: Omit<User, "_id" | "createdAt" | "updatedAt"> = req.body;
 
-    if (!user) {
-      return res.status(400).send("No user provided");
-    } else if (
-      !user.firebaseUID ||
-      !user.nombre ||
-      !user.genero ||
-      !user.celular ||
-      !user.email ||
-      !user.fechaDeNacimiento ||
-      !user.tipo
-    ) {
-      return res.status(400).send("Missing user fields");
-    } else if (
-      user.tipo !== "abogado" &&
-      user.tipo !== "cliente" &&
-      user.tipo !== "admin"
-    ) {
-      return res.status(400).send("Invalid user type");
+    if (!userData || !isValidUser(userData)) {
+      return res.status(400).send("Invalid user data");
     }
 
-    // Use the user data as is, let MongoDB generate its own _id
-    const result = await collection("usuarios").insertOne(user);
-    res.status(200).json(result);
+    const newUser: User = {
+      ...userData,
+      fechaDeNacimiento: new Date(userData.fechaDeNacimiento),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+
+    const result = await collection("usuarios").insertOne(newUser);
+    res.status(201).json({ ...newUser, _id: result.insertedId });
   } catch (error) {
     res
       .status(500)
       .json({ error: "Internal server error", details: error.message });
   }
+}
+
+function isValidUser(
+  user: any
+): user is Omit<User, "_id" | "createdAt" | "updatedAt"> {
+  const requiredFields: (keyof User)[] = [
+    "uid",
+    "nombre",
+    "genero",
+    "celular",
+    "email",
+    "fechaDeNacimiento",
+    "tipo",
+  ];
+  return (
+    requiredFields.every((field) => user[field] !== undefined) &&
+    ["cliente", "abogado", "admin"].includes(user.tipo)
+  );
 }

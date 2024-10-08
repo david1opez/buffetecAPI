@@ -10,7 +10,7 @@ exports.updateSheet = updateSheet;
 const googleapis_1 = require("googleapis");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const serviceAccountKeyFile = process.cwd() + '/src/swift-438017-c63d45ac72b3.json';
+const serviceAccountKeyFile = process.cwd() + '/src/service.json';
 async function getGoogleSheetClient() {
     const auth = new googleapis_1.google.auth.GoogleAuth({
         keyFilename: serviceAccountKeyFile,

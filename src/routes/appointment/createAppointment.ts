@@ -67,12 +67,27 @@ async function checkAttorneyAvailability(
   });
   if (!attorney) return false;
 
-  const appointmentDate = appointment.fechaHora;
-  const appointmentDay = appointmentDate
-    .toLocaleDateString("es-ES", { weekday: "short" })
-    .toLowerCase()
+  const appointmentDate = new Date(appointment.fechaHora);
+
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: "America/Monterrey",
+    weekday: "short", // Correct type
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+  const formatter = new Intl.DateTimeFormat("es-ES", options);
+
+  const appointmentDay = formatter
+    .formatToParts(appointmentDate)
+    .find((part) => part.type === "weekday")
+    ?.value.toLowerCase()
     .slice(0, 3);
-  const appointmentHour = appointmentDate.toTimeString().slice(0, 5);
+
+  const appointmentHour = formatter
+    .formatToParts(appointmentDate)
+    .filter((part) => part.type === "hour" || part.type === "minute")
+    .map((part) => part.value)
+    .join(":");
 
   // Verificar si el día y la hora están en el horario semanal del abogado
   if (!attorney.horarioSemanal[appointmentDay]?.includes(appointmentHour)) {

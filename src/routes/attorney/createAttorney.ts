@@ -50,6 +50,11 @@ function isValidAttorney(
     "duracionCita",
     "casosEjemplo",
   ];
+
+  console.log(requiredFields.every((field) => attorney[field] !== undefined));
+  console.log(typeof attorney.duracionCita === "number");
+  console.log(Array.isArray(attorney.excepcionesFechas));
+  
   return (
     requiredFields.every((field) => attorney[field] !== undefined) &&
     typeof attorney.duracionCita === "number" &&

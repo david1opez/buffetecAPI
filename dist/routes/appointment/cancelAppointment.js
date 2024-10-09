@@ -27,7 +27,6 @@ async function CancelAppointment(req, res) {
         }
         const { fechaHora, abogadoUid } = appointmentResult;
         if (fechaHora && abogadoUid) {
-            // Convert fechaHora to a Date object if it's a string
             const fechaHoraDate = new Date(fechaHora);
             const abogadoResult = await (0, mongo_1.collection)("abogados").findOneAndUpdate({
                 uid: abogadoUid,

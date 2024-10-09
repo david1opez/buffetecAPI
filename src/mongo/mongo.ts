@@ -3,11 +3,7 @@ import { config } from "dotenv";
 
 config();
 
-// const uri = process.env.MONGO_URI || "mongodb://localhost:27017/";
-
-const uri =
-  process.env.MONGO_URI ||
-  "mongodb+srv://swift:swift@cluster0.h4bqimr.mongodb.net/";
+const uri = process.env.MONGO_URI || "mongodb://localhost:27017/";
 
 const client = new MongoClient(uri, {
   serverApi: {

@@ -1,4 +1,3 @@
-// cancelAppointment.ts
 import { collection } from "../../mongo/mongo";
 import { Request, Response } from "express";
 import { Appointment } from "./appointmentTypes";
@@ -16,17 +15,56 @@ export default async function CancelAppointment(req: Request, res: Response) {
       updatedAt: new Date(),
     };
 
-    const updateResult = await collection("citas").findOneAndUpdate(
-      { _id: new ObjectId(_id) },
-      { $set: { ...updateFields, estatus: "cancelada" } },
-      { returnDocument: "after" }
-    );
+    const existingAppointment = await collection("citas").findOne({
+      _id: new ObjectId(_id),
+    });
 
-    if (!updateResult) {
+    if (!existingAppointment) {
       return res.status(404).json({ error: "Appointment not found" });
     }
 
-    res.status(200).json(updateResult);
+    if (existingAppointment.estado === "cancelada") {
+      return res.status(400).json({ error: "Appointment is already canceled" });
+    }
+
+    const appointmentResult = await collection("citas").findOneAndUpdate(
+      { _id: new ObjectId(_id) },
+      { $set: { ...updateFields, estado: "cancelada" } },
+      { returnDocument: "after" }
+    );
+
+    if (!appointmentResult) {
+      return res.status(404).json({ error: "Appointment not found" });
+    }
+    const { fechaHora, abogadoUid } = appointmentResult;
+
+    if (fechaHora && abogadoUid) {
+      const fechaHoraDate = new Date(fechaHora);
+
+      const abogadoResult = await collection("abogados").findOneAndUpdate(
+        {
+          uid: abogadoUid,
+          "excepcionesFechas.fechaHora": fechaHoraDate,
+        },
+        {
+          $pull: {
+            excepcionesFechas: {
+              fechaHora: fechaHoraDate,
+            } as never,
+          },
+          $set: { updatedAt: new Date() },
+        },
+        { returnDocument: "after" }
+      );
+
+      if (!abogadoResult) {
+        console.warn(
+          `Abogado with uid ${abogadoUid} not found or fechaHora not in excepcionesFechas`
+        );
+      }
+    }
+
+    res.status(200).json(appointmentResult);
   } catch (error) {
     console.error("Error updating appointment:", error);
     res

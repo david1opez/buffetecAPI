@@ -27,6 +27,8 @@ import GetClientsFromSheets from "./routes/clientCase/getClientsFromSheets";
 import CreateAppointment from "./routes/appointment/createAppointment";
 import GetAppointments from "./routes/appointment/getAppointments";
 import UpdateAppointment from "./routes/appointment/updateAppointment";
+import CancelAppointment from "./routes/appointment/cancelAppointment";
+import DeleteAppointment from "./routes/appointment/deleteAppointment";
 
 // News routes
 import GetNews from "./routes/news/getNews";
@@ -63,6 +65,8 @@ router.get("/getClientsFromSheets", GetClientsFromSheets);
 router.post("/createAppointment", CreateAppointment);
 router.get("/getAppointments", GetAppointments);
 router.put("/updateAppointment", UpdateAppointment);
+router.put("/cancelAppointment", CancelAppointment);
+router.delete("/deleteAppointment", DeleteAppointment);
 
 // News routes
 router.get("/getNoticias", GetNews);
@@ -73,5 +77,5 @@ app.use("/", router);
 
 // INITIALIZE SERVER
 app.listen(4000, () => {
-  console.log("Server is running on port 3000");
+  console.log("Server is running on port 4000");
 });

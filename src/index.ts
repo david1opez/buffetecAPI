@@ -9,6 +9,7 @@ import DefaultRoute from "./routes/defaultRoute";
 import CreateUser from "./routes/user/createUser";
 import GetUser from "./routes/user/getUser";
 import UpdateUser from "./routes/user/updateUser";
+import GetUsers from "./routes/user/getUsers";
 
 // Attorney routes
 import CreateAttorney from "./routes/attorney/createAttorney";
@@ -43,6 +44,7 @@ router.get("/", DefaultRoute);
 // User routes
 router.post("/createUser", CreateUser);
 router.get("/getUser", GetUser);
+router.get("/getUsers", GetUsers);
 router.put("/updateUser", UpdateUser);
 
 // Attorney routes
@@ -70,6 +72,6 @@ router.post("/eliminarNoticia", DeleteNews);
 app.use("/", router);
 
 // INITIALIZE SERVER
-app.listen(3000, () => {
+app.listen(4000, () => {
   console.log("Server is running on port 3000");
 });

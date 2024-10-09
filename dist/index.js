@@ -12,6 +12,7 @@ const defaultRoute_1 = __importDefault(require("./routes/defaultRoute"));
 const createUser_1 = __importDefault(require("./routes/user/createUser"));
 const getUser_1 = __importDefault(require("./routes/user/getUser"));
 const updateUser_1 = __importDefault(require("./routes/user/updateUser"));
+const getUsers_1 = __importDefault(require("./routes/user/getUsers"));
 // Attorney routes
 const createAttorney_1 = __importDefault(require("./routes/attorney/createAttorney"));
 const getAttorneys_1 = __importDefault(require("./routes/attorney/getAttorneys"));
@@ -38,6 +39,7 @@ router.get("/", defaultRoute_1.default);
 // User routes
 router.post("/createUser", createUser_1.default);
 router.get("/getUser", getUser_1.default);
+router.get("/getUsers", getUsers_1.default);
 router.put("/updateUser", updateUser_1.default);
 // Attorney routes
 router.post("/createAttorney", createAttorney_1.default);
@@ -59,7 +61,7 @@ router.post("/crearNoticia", createNews_1.default);
 router.post("/eliminarNoticia", deleteNews_1.default);
 app.use("/", router);
 // INITIALIZE SERVER
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log("Server is running on port 3000");
 });
 //# sourceMappingURL=index.js.map

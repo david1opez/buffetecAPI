@@ -16,9 +16,6 @@ export default async function CreateAttorney(req: Request, res: Response) {
     const user = await collection("usuarios").findOne({
       uid: attorneyData.uid,
     });
-    if (!user || user.tipo !== "abogado") {
-      return res.status(400).send("Invalid user or user is not an attorney");
-    }
 
     const newAttorney: Attorney = {
       ...attorneyData,
@@ -50,6 +47,7 @@ function isValidAttorney(
     "duracionCita",
     "casosEjemplo",
   ];
+
   return (
     requiredFields.every((field) => attorney[field] !== undefined) &&
     typeof attorney.duracionCita === "number" &&

@@ -27,6 +27,8 @@ const getClientsFromSheets_1 = __importDefault(require("./routes/clientCase/getC
 const createAppointment_1 = __importDefault(require("./routes/appointment/createAppointment"));
 const getAppointments_1 = __importDefault(require("./routes/appointment/getAppointments"));
 const updateAppointment_1 = __importDefault(require("./routes/appointment/updateAppointment"));
+const cancelAppointment_1 = __importDefault(require("./routes/appointment/cancelAppointment"));
+const deleteAppointment_1 = __importDefault(require("./routes/appointment/deleteAppointment"));
 // News routes
 const getNews_1 = __importDefault(require("./routes/news/getNews"));
 const createNews_1 = __importDefault(require("./routes/news/createNews"));
@@ -55,6 +57,8 @@ router.get("/getClientsFromSheets", getClientsFromSheets_1.default);
 router.post("/createAppointment", createAppointment_1.default);
 router.get("/getAppointments", getAppointments_1.default);
 router.put("/updateAppointment", updateAppointment_1.default);
+router.put("/cancelAppointment", cancelAppointment_1.default);
+router.delete("/deleteAppointment", deleteAppointment_1.default);
 // News routes
 router.get("/getNoticias", getNews_1.default);
 router.post("/crearNoticia", createNews_1.default);
@@ -62,6 +66,6 @@ router.post("/eliminarNoticia", deleteNews_1.default);
 app.use("/", router);
 // INITIALIZE SERVER
 app.listen(4000, () => {
-    console.log("Server is running on port 3000");
+    console.log("Server is running on port 4000");
 });
 //# sourceMappingURL=index.js.map

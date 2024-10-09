@@ -13,9 +13,6 @@ async function CreateAttorney(req, res) {
         const user = await (0, mongo_1.collection)("usuarios").findOne({
             uid: attorneyData.uid,
         });
-        if (!user || user.tipo !== "abogado") {
-            return res.status(400).send("Invalid user or user is not an attorney");
-        }
         const newAttorney = {
             ...attorneyData,
             excepcionesFechas: attorneyData.excepcionesFechas.map((exc) => ({

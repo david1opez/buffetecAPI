@@ -39,6 +39,7 @@ function isValidAppointment(appointment) {
         "clienteUid",
         "fechaHora",
         "estado",
+        "motivo",
     ];
     return (requiredFields.every((field) => appointment[field] !== undefined) &&
         ["pendiente", "confirmada", "cancelada", "completada"].includes(appointment.estado));

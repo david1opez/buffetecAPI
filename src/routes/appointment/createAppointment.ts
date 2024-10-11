@@ -50,6 +50,7 @@ function isValidAppointment(
     "clienteUid",
     "fechaHora",
     "estado",
+    "motivo",
   ];
   return (
     requiredFields.every((field) => appointment[field] !== undefined) &&

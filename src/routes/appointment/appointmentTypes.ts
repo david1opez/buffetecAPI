@@ -13,7 +13,7 @@ export interface Appointment {
   clienteUid: string;
   fechaHora: Date; // Cambiado de fecha y hora separados a fechaHora
   estado: AppointmentStatus;
-  notas?: string;
+  motivo?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }

@@ -26,7 +26,7 @@ async function GetAppointments(req, res) {
             clienteUid: doc.clienteUid,
             fechaHora: doc.fechaHora,
             estado: doc.estado,
-            notas: doc.notas,
+            motivo: doc.motivo,
             createdAt: doc.createdAt,
             updatedAt: doc.updatedAt,
         }));

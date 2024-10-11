@@ -22,11 +22,12 @@ async function GetNews(req, res) {
         }
         const databaseNews = (await (0, mongo_1.collection)("noticias").find().toArray()).map((news) => {
             return {
+                _id: news._id.toString(),
                 title: news.title,
                 description: news.description,
                 urlToImage: news.image,
                 date: news.date,
-                url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
+                url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg", //`https://bufetecweb.vercel.app/noticias/${news._id}`,
             };
         });
         res.status(200).json({

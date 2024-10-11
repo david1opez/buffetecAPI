@@ -3,6 +3,7 @@ import { collection } from "../../mongo/mongo";
 import { Request, Response } from "express";
 
 type News = {
+  _id?: string;
   title: string;
   description: string;
   urlToImage: string;
@@ -37,11 +38,12 @@ export default async function GetNews(req: Request, res: Response) {
       await collection("noticias").find().toArray()
     ).map((news) => {
       return {
+        _id: news._id.toString(),
         title: news.title,
         description: news.description,
         urlToImage: news.image,
         date: news.date,
-        url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg" //`https://bufetecweb.vercel.app/noticias/${news._id}`,
+        url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg", //`https://bufetecweb.vercel.app/noticias/${news._id}`,
       };
     });
 

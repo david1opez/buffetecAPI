@@ -73,7 +73,7 @@ router.delete("/deleteAppointment", DeleteAppointment);
 router.get("/getNoticias", GetNews);
 router.post("/crearNoticia", CreateNews);
 router.post("/eliminarNoticia", DeleteNews);
-router.post("/actualizarNoticia", UpdateNews);
+router.put("/actualizarNoticia", UpdateNews);
 
 app.use("/", router);
 

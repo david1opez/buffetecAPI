@@ -33,6 +33,7 @@ const deleteAppointment_1 = __importDefault(require("./routes/appointment/delete
 const getNews_1 = __importDefault(require("./routes/news/getNews"));
 const createNews_1 = __importDefault(require("./routes/news/createNews"));
 const deleteNews_1 = __importDefault(require("./routes/news/deleteNews"));
+const updateNews_1 = __importDefault(require("./routes/news/updateNews"));
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
 app.use((0, cors_1.default)());
@@ -63,6 +64,7 @@ router.delete("/deleteAppointment", deleteAppointment_1.default);
 router.get("/getNoticias", getNews_1.default);
 router.post("/crearNoticia", createNews_1.default);
 router.post("/eliminarNoticia", deleteNews_1.default);
+router.put("/actualizarNoticia", updateNews_1.default);
 app.use("/", router);
 // INITIALIZE SERVER
 app.listen(4000, () => {

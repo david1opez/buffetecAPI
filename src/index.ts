@@ -34,6 +34,7 @@ import DeleteAppointment from "./routes/appointment/deleteAppointment";
 import GetNews from "./routes/news/getNews";
 import CreateNews from "./routes/news/createNews";
 import DeleteNews from "./routes/news/deleteNews";
+import UpdateNews from "./routes/news/updateNews";
 
 const app = express();
 const router = express.Router();
@@ -72,6 +73,7 @@ router.delete("/deleteAppointment", DeleteAppointment);
 router.get("/getNoticias", GetNews);
 router.post("/crearNoticia", CreateNews);
 router.post("/eliminarNoticia", DeleteNews);
+router.post("/actualizarNoticia", UpdateNews);
 
 app.use("/", router);
 

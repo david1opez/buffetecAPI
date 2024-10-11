@@ -13,9 +13,13 @@ export default async function CreateAttorney(req: Request, res: Response) {
     }
 
     // Verificar si el usuario existe y es de tipo 'abogado'
-    const user = await collection("usuarios").findOne({
+    const user = await collection("abogados").findOne({
       uid: attorneyData.uid,
     });
+
+    if (user) {
+      return res.status(400).send("The user attorney data already exists.");
+    }
 
     const newAttorney: Attorney = {
       ...attorneyData,

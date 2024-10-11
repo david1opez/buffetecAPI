@@ -10,9 +10,12 @@ async function CreateAttorney(req, res) {
             return res.status(400).send("Invalid attorney data");
         }
         // Verificar si el usuario existe y es de tipo 'abogado'
-        const user = await (0, mongo_1.collection)("usuarios").findOne({
+        const user = await (0, mongo_1.collection)("abogados").findOne({
             uid: attorneyData.uid,
         });
+        if (user) {
+            return res.status(400).send("The user attorney data already exists.");
+        }
         const newAttorney = {
             ...attorneyData,
             excepcionesFechas: attorneyData.excepcionesFechas.map((exc) => ({

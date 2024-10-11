@@ -14,11 +14,13 @@ async function UpdateNews(req, res) {
             ...updateData,
             updatedAt: new Date(),
         };
-        if (updateFields.title === undefined ||
-            updateFields.description === undefined ||
-            updateFields.image === undefined) {
-            return res.status(400).json({ error: "Missing required fields" });
-        }
+        // if (
+        //   updateFields.title === undefined ||
+        //   updateFields.description === undefined ||
+        //   updateFields.image === undefined
+        // ) {
+        //   return res.status(400).json({ error: "Missing required fields" });
+        // }
         const updateResult = await (0, mongo_1.collection)("noticias").findOneAndUpdate({ _id: new mongodb_1.ObjectId(id) }, { $set: updateFields }, { returnDocument: "after" });
         if (!updateResult) {
             return res.status(404).json({ error: "News article not found" });

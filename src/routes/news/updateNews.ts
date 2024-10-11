@@ -23,13 +23,13 @@ export default async function UpdateNews(req: Request, res: Response) {
       updatedAt: new Date(),
     };
 
-    if (
-      updateFields.title === undefined ||
-      updateFields.description === undefined ||
-      updateFields.image === undefined
-    ) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
+    // if (
+    //   updateFields.title === undefined ||
+    //   updateFields.description === undefined ||
+    //   updateFields.image === undefined
+    // ) {
+    //   return res.status(400).json({ error: "Missing required fields" });
+    // }
 
     const updateResult = await collection("noticias").findOneAndUpdate(
       { _id: new ObjectId(id) },

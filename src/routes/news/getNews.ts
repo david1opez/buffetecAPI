@@ -43,7 +43,7 @@ export default async function GetNews(req: Request, res: Response) {
         description: news.description,
         urlToImage: news.image,
         date: news.date,
-        url: "https://images3.memedroid.com/images/UPLOADED250/604518489dc65.jpeg", //`https://bufetecweb.vercel.app/noticias/${news._id}`,
+        url: `https://bufetecweb.vercel.app/noticias/${news._id}`,
       };
     });
 

@@ -71,7 +71,7 @@ async function checkAttorneyAvailability(appointment) {
     console.log(attorney.horarioSemanal);
     console.log(appointmentHour);
     console.log(appointmentDay);
-    if (!attorney.horarioSemanal[appointmentDay]?.includes(appointmentHour)) {
+    if (!attorney.horarioSemanal[appointmentDay?.replaceAll("é", "e")]?.includes(appointmentHour)) {
         return false;
     }
     // Verificar si no hay excepciones para esa fecha y hora

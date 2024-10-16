@@ -70,6 +70,7 @@ async function checkAttorneyAvailability(appointment) {
         .join(":");
     console.log(attorney.horarioSemanal);
     console.log(appointmentHour);
+    console.log(appointmentDay);
     if (!attorney.horarioSemanal[appointmentDay]?.includes(appointmentHour)) {
         return false;
     }

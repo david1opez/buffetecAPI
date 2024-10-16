@@ -68,8 +68,8 @@ async function checkAttorneyAvailability(appointment) {
         .filter((part) => part.type === "hour" || part.type === "minute")
         .map((part) => part.value)
         .join(":");
-    // console.log(attorney.horarioSemanal);
-    // console.log(appointmentHour);
+    console.log(attorney.horarioSemanal);
+    console.log(appointmentHour);
     if (!attorney.horarioSemanal[appointmentDay]?.includes(appointmentHour)) {
         return false;
     }

@@ -39,7 +39,6 @@ const updateNews_1 = __importDefault(require("./routes/news/updateNews"));
 // import ValidateDocument from "./routes/documentValidation/validateDocument";
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
-// const upload = multer({ dest: 'uploads/' });
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json({
     limit: "5mb"

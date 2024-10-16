@@ -43,8 +43,6 @@ import UpdateNews from "./routes/news/updateNews";
 const app = express();
 const router = express.Router();
 
-// const upload = multer({ dest: 'uploads/' });
-
 app.use(cors());
 app.use(bodyParser.json({
   limit: "5mb"

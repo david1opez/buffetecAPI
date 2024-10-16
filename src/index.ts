@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import multer from 'multer';
+// import multer from 'multer';
 
 // ROUTES
 import DefaultRoute from "./routes/defaultRoute";
@@ -38,12 +38,12 @@ import DeleteNews from "./routes/news/deleteNews";
 import UpdateNews from "./routes/news/updateNews";
 
 // Document validation
-import ValidateDocument from "./routes/documentValidation/validateDocument";
+// import ValidateDocument from "./routes/documentValidation/validateDocument";
 
 const app = express();
 const router = express.Router();
 
-const upload = multer({ dest: 'uploads/' });
+// const upload = multer({ dest: 'uploads/' });
 
 app.use(cors());
 app.use(bodyParser.json({
@@ -84,7 +84,7 @@ router.post("/eliminarNoticia", DeleteNews);
 router.put("/actualizarNoticia", UpdateNews);
 
 // Document validation
-router.post("/validateDocument", upload.single('image'), ValidateDocument);
+// router.post("/validateDocument", upload.single('image'), ValidateDocument);
 
 app.use("/", router);
 

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const multer_1 = __importDefault(require("multer"));
+// import multer from 'multer';
 // ROUTES
 const defaultRoute_1 = __importDefault(require("./routes/defaultRoute"));
 // User routes
@@ -36,10 +36,10 @@ const createNews_1 = __importDefault(require("./routes/news/createNews"));
 const deleteNews_1 = __importDefault(require("./routes/news/deleteNews"));
 const updateNews_1 = __importDefault(require("./routes/news/updateNews"));
 // Document validation
-const validateDocument_1 = __importDefault(require("./routes/documentValidation/validateDocument"));
+// import ValidateDocument from "./routes/documentValidation/validateDocument";
 const app = (0, express_1.default)();
 const router = express_1.default.Router();
-const upload = (0, multer_1.default)({ dest: 'uploads/' });
+// const upload = multer({ dest: 'uploads/' });
 app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json({
     limit: "5mb"
@@ -72,7 +72,7 @@ router.post("/crearNoticia", createNews_1.default);
 router.post("/eliminarNoticia", deleteNews_1.default);
 router.put("/actualizarNoticia", updateNews_1.default);
 // Document validation
-router.post("/validateDocument", upload.single('image'), validateDocument_1.default);
+// router.post("/validateDocument", upload.single('image'), ValidateDocument);
 app.use("/", router);
 // INITIALIZE SERVER
 app.listen(4000, () => {
